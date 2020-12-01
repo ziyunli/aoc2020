@@ -20,7 +20,7 @@ def find_triple(nums):
 
 
 if __name__ == '__main__':
-    f = open('01.txt', 'r')
+    f = open('../input/01.txt', 'r')
     nums = parse_numbers(f.readlines())
     # part 1
     # pair = find_entries(nums)
