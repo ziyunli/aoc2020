@@ -1,30 +1,40 @@
-def parse_numbers(lines):
-    return [int(line) for line in lines]
+def numgen(f):
+    for line in f:
+        yield int(line)
 
 
-def find_entries(nums):
+def find_pair(nums):
     found = set()
     for n in nums:
-        if (2020 - n) in found:
-            return n, 2020 - n
+        m = 2020 - n
+        if m in found:
+            return n, m
         found.add(n)
 
 
 def find_triple(nums):
-    l = len(nums)
-    for i in range(0, l-2):
-        for j in range(1, l-1):
-            for k in range(2, l):
-                if nums[i] + nums[j] + nums[k] == 2020:
+    sums = {}
+    nums = [n for n in nums]
+    length = len(nums)
+    for i in range(0, length - 2):
+        for j in range(1, length - 1):
+            s = nums[i] + nums[j]
+            if s not in sums:
+                sums[s] = (nums[i], nums[j])
+            else:
+                continue
+            for k in range(2, length):
+                if (2020 - nums[k]) in sums:
                     return nums[i], nums[j], nums[k]
 
 
 if __name__ == '__main__':
     f = open('../input/01.txt', 'r')
-    nums = parse_numbers(f.readlines())
+
     # part 1
-    # pair = find_entries(nums)
-    # print(pair)
-    # print(pair[0] * pair[1])
-    triple = find_triple(nums)
-    print(triple, triple[0] * triple[1] * triple[2])
+    # n, m = find_pair(numgen(f))
+    # print(n, m, n * m)
+
+    # part 2
+    i, j, k = find_triple(numgen(f))
+    print(i, j, k, i * j * k)
