@@ -13,19 +13,15 @@ def find_pair(nums):
 
 
 def find_triple(nums):
-    sums = {}
     nums = [n for n in nums]
     length = len(nums)
-    for i in range(0, length - 2):
-        for j in range(1, length - 1):
-            s = nums[i] + nums[j]
-            if s not in sums:
-                sums[s] = (nums[i], nums[j])
-            else:
-                continue
-            for k in range(2, length):
-                if (2020 - nums[k]) in sums:
-                    return nums[i], nums[j], nums[k]
+    for i in range(0, length-1):
+        found = set()
+        rem = 2020 - nums[i]
+        for j in range(i+1, length):
+            if rem - nums[j] in found:
+                return nums[i], nums[j], rem - nums[j]
+            found.add(nums[j])
 
 
 if __name__ == '__main__':
