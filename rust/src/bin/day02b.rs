@@ -5,8 +5,8 @@ use aoc2020::policy::Policy;
 use std::str::FromStr;
 
 fn is_valid(policy: &Policy) -> bool {
-    (policy.password.chars().nth(policy.lo - 1).unwrap() == policy.char) ^
-        (policy.password.chars().nth(policy.hi - 1).unwrap() == policy.char)
+    (policy.password.chars().nth(policy.lo - 1).unwrap() == policy.char)
+        ^ (policy.password.chars().nth(policy.hi - 1).unwrap() == policy.char)
 }
 
 fn main() {

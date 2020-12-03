@@ -14,7 +14,7 @@ fn main() {
                 let m = 2020 - n;
                 if found.contains(&m) {
                     println!("{} * {} = {}", n, m, n * m);
-                    return
+                    return;
                 }
                 found.insert(n);
             }
