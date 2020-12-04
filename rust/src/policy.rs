@@ -13,7 +13,8 @@ pub struct Policy {
 impl FromStr for Policy {
     type Err = std::string::ParseError;
     fn from_str(line: &str) -> Result<Self, Self::Err> {
-        let re = Regex::new(r"(?P<lo>\d+)-(?P<hi>\d+) (?P<char>[a-z]): (?P<password>[a-z]+)").unwrap();
+        let re =
+            Regex::new(r"(?P<lo>\d+)-(?P<hi>\d+) (?P<char>[a-z]): (?P<password>[a-z]+)").unwrap();
         let caps = re.captures(line).unwrap();
         return Ok(Policy {
             lo: caps["lo"].parse::<usize>().unwrap(),
