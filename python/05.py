@@ -19,8 +19,8 @@ class Seat:
         """
         result = 0
         for ch in code:
-            curr = 1 if ch == 'B' else 0
-            result = (2 * result + curr)
+            curr = 1 if ch == "B" else 0
+            result = 2 * result + curr
         return result
 
     def _parse_col(self, code):
@@ -34,13 +34,13 @@ class Seat:
         """
         result = 0
         for ch in code:
-            curr = 1 if ch == 'R' else 0
-            result = (2 * result + curr)
+            curr = 1 if ch == "R" else 0
+            result = 2 * result + curr
         return result
 
 
-if __name__ == '__main__':
-    f = open('../input/05.txt', 'r')
+if __name__ == "__main__":
+    f = open("../input/05.txt", "r")
 
     heap = []
     for line in f:

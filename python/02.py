@@ -1,7 +1,7 @@
 def validate(line):
-    policy, password = [token.strip() for token in line.split(':')]
-    rule, char = policy.split(' ')
-    lo, hi = [int(token) for token in rule.split('-')]
+    policy, password = [token.strip() for token in line.split(":")]
+    rule, char = policy.split(" ")
+    lo, hi = [int(token) for token in rule.split("-")]
 
     # part 1
     # freq = password.count(char)
@@ -11,8 +11,8 @@ def validate(line):
     return (password[lo - 1] == char) ^ (password[hi - 1] == char)
 
 
-if __name__ == '__main__':
-    f = open('../input/02.txt', 'r')
+if __name__ == "__main__":
+    f = open("../input/02.txt", "r")
 
     # part 1
     count = 0
